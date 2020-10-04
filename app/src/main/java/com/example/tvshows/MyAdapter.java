@@ -1,5 +1,7 @@
 package com.example.tvshows;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,24 +11,40 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class MyAdapter extends RecyclerView.Adapter<TvViewHolder> {
 
+    private Context mContext;
+    private List<TvData> myTvList;
 
+
+    public MyAdapter(Context mContext, List<TvData> myTvList) {
+        this.mContext = mContext;
+        this.myTvList = myTvList;
+    }
 
     @NonNull
     @Override
-    public TvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public TvViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+
+        View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_row_item, viewGroup, false);
+
+
+        return new TvViewHolder(mView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TvViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull TvViewHolder tvViewHolder, int i) {
+        tvViewHolder.imageView.setImageResource(myTvList.get(i).getItemImage());
+        tvViewHolder.mTitle.setText(myTvList.get(i).getItemName());
+        tvViewHolder.mGenre.setText(myTvList.get(i).getItemGenre());
+        tvViewHolder.mRate.setText(myTvList.get(i).getItemRate());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return myTvList.size();
     }
 }
 
