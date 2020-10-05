@@ -40,6 +40,8 @@ public class MyAdapter extends RecyclerView.Adapter<TvViewHolder> {
         tvViewHolder.mTitle.setText(myTvList.get(i).getItemName());
         tvViewHolder.mGenre.setText(myTvList.get(i).getItemGenre());
         tvViewHolder.mRate.setText(myTvList.get(i).getItemRate());
+
+
     }
 
     @Override
