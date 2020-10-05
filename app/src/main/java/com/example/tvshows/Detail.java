@@ -20,5 +20,11 @@ public class Detail extends AppCompatActivity {
         tvImage = (ImageView)findViewById(R.id.ivImage2);
 
         Bundle mBundle = getIntent().getExtras();
+
+        if(mBundle!=null)
+        {
+            tvGenre.setText(mBundle.getString("Genre"));
+            tvImage.setImageResource(mBundle.getInt("Image"));
+        }
     }
 }
