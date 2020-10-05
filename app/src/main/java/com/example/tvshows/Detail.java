@@ -10,6 +10,7 @@ public class Detail extends AppCompatActivity {
 
     TextView tvGenre;
     ImageView tvImage;
+    TextView tvDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +19,11 @@ public class Detail extends AppCompatActivity {
 
         tvGenre = (TextView)findViewById(R.id.txtGenre);
         tvImage = (ImageView)findViewById(R.id.ivImage2);
+        tvDescription = (TextView)findViewById(R.id.txtDescription);
 
         Bundle mBundle = getIntent().getExtras();
 
+        tvDescription.setText(mBundle.getString("Description"));
         if(mBundle!=null)
         {
             tvGenre.setText(mBundle.getString("Genre"));

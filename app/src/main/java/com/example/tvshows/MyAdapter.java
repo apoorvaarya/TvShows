@@ -48,6 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<TvViewHolder> {
                 Intent intent = new Intent(mContext, Detail.class);
                 intent.putExtra("Image", myTvList.get(tvViewHolder.getAdapterPosition()).getItemImage());
                 intent.putExtra("Genre", myTvList.get(tvViewHolder.getAdapterPosition()).getItemGenre());
+                intent.putExtra("Description", myTvList.get(tvViewHolder.getAdapterPosition()).getDescription());
                 mContext.startActivity(intent);
             }
         });
