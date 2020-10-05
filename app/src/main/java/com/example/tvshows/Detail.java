@@ -18,5 +18,7 @@ public class Detail extends AppCompatActivity {
 
         tvGenre = (TextView)findViewById(R.id.txtGenre);
         tvImage = (ImageView)findViewById(R.id.ivImage2);
+
+        Bundle mBundle = getIntent().getExtras();
     }
 }

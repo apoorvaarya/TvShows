@@ -1,6 +1,7 @@
 package com.example.tvshows;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,11 +36,21 @@ public class MyAdapter extends RecyclerView.Adapter<TvViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TvViewHolder tvViewHolder, int i) {
+    public void onBindViewHolder(@NonNull final TvViewHolder tvViewHolder, int i) {
         tvViewHolder.imageView.setImageResource(myTvList.get(i).getItemImage());
         tvViewHolder.mTitle.setText(myTvList.get(i).getItemName());
         tvViewHolder.mGenre.setText(myTvList.get(i).getItemGenre());
         tvViewHolder.mRate.setText(myTvList.get(i).getItemRate());
+
+        tvViewHolder.mCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Detail.class);
+                intent.putExtra("Image", myTvList.get(tvViewHolder.getAdapterPosition()).getItemImage());
+                intent.putExtra("Genre", myTvList.get(tvViewHolder.getAdapterPosition()).getItemGenre());
+                mContext.startActivity(intent);
+            }
+        });
 
 
     }
