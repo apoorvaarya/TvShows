@@ -1,10 +1,12 @@
 package com.example.tvshows;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class Detail extends AppCompatActivity {
 
@@ -16,6 +18,10 @@ public class Detail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         tvGenre = (TextView)findViewById(R.id.txtGenre);
         tvImage = (ImageView)findViewById(R.id.ivImage2);
