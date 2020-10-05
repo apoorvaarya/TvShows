@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         mTvData = new TvData("Supernatural", "Horror", "9/10", R.drawable.tvimage4);
         myTvList.add(mTvData);
 
-        myTvList.add(mTvData);
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, myTvList);
         mRecyclerView.setAdapter(myAdapter);
     }
